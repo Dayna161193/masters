@@ -1,49 +1,172 @@
 <!DOCTYPE HTML>
 <html lang="en">
-    <head>
-        <title>Clumsy Bird</title>
-        <link rel="apple-touch-icon-precomposed" href="data/img/touch-icon-iphone.png"/>
-        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="data/img/touch-icon-iphone-retina.png"/>
-        <link rel="shortcut icon" href="data/img/favicon.ico">
-        <link rel="stylesheet" type="text/css" media="screen" href="index.css">
-        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <meta name="apple-mobile-web-app-title" content="Clumsy Bird">
-        <meta charset="UTF-8" />
-        <meta name="description" content="Clumsy Bird - A Flappy Bird clone using MelonJS"/>
-        <meta name="keywords" content="flappybird, flappy, bird, game, html5, melonjs,clone"/>
-        <meta name="robots" content="index, follow">
-        <meta name="google-site-verification" content="RDZI9SqVaffd48uHfZMv67-YdvviOMe2HuULEYqVgd4" />
-        <meta property="og:image" content="http://ellisonleao.github.io/clumsy-bird/data/img/bg.png" />
-        <meta property="og:title" content="Clumsy Bird - A Flappy Bird clone using MelonJS"/>
-        <meta property="og:url" content="http://ellisonleao.github.io/clumsy-bird/"/>
-        <meta property="og:site_name" content="Clumsy Bird - MelonJS"/>
+<head>
+  <title>Clumsy Bird</title>
+  <link rel="apple-touch-icon-precomposed" href="data/img/touch-icon-iphone.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="data/img/touch-icon-iphone-retina.png"/>
+  <link rel="shortcut icon" href="data/img/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/wow.min.js"></script>
 
-        <!-- Twitter Card -->
-        <meta name="twitter:hashtag" content="clumsybird" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@ellisonleao" />
-        <meta name="twitter:creator" content="@ellisonleao" />
-        <meta name="twitter:title" content="Clumsy Bird" />
-        <meta name="twitter:description" content="A Flappy Bird melonJS clone" />
 
-        <!-- Humans -->
-        <link rel="author" href="humans.txt" />
-    </head>
+  <!-- Optional theme -->
 
-    <body>
-        <!-- Canvas placeholder -->
-        <div id="screen"></div>
+</head>
 
-        <!-- melonJS Library -->
-        <script type="text/javascript" src="js/melonJS-min.js" ></script>
-        <script type="text/javascript" src="build/clumsy-min.js" ></script>
-        <script type="text/javascript">
-            window.onReady(function onReady() {
-                game.onload();
-            });
-        </script>
+<body id="backgroundImage">
+  <!-- Canvas placeholder -->
+  <div id="screen"></div>
+  <div class="row" id="">
 
-    </body>
+    <div class="col-md-3" id="">
+      <p id="scoreId"> Score:  <input type="text" name="ScoreValue" id="ScoreValue" value="0" readonly/>
+      </p>
+    </div>
+    <div class="col-md-6" id="">
+      <div id="">
+      </div>
+    </div>
+    <div class="col-md-3" id="">
+
+    </div>
+  </div>
+  <div class="mainGameDiv">
+    <div class="row" id="gameQuestions">
+
+      <div class="col-md-3" id="">
+      </div>
+      <div class="col-md-6" id="">
+        <div id="questionTextarea">
+          <p></p>
+        </div>
+      </div>
+      <div class="col-md-3" id="">
+
+      </div>
+    </div>
+
+    <div class="row" id="answersOptions">
+      <div class="col-md-2"></div>
+      <div class="col-md-2" id="mythButtonDiv">
+        <button type="button" class="btn btn-danger" id="mythButton"> Myth </button>
+      </div>
+
+      <div class="col-md-4"></div>
+
+      <div class="col-md-2" id="factButtonDiv">
+        <button type="button" class="btn btn-success" id="factButton"> Fact </button>
+      </div>
+      <div class="col-md-2"></div>
+
+    </div>
+  </div>
+
+  <script>
+  $(document).ready(function () {
+  //your code here
+  var x = ["Diabetes causes more deaths a year than breast cancer and AIDS combined",
+
+  "Having diabetes nearly doubles your chance of having a heart attack",
+
+  "Being obese raises the risk of becoming diabetic",
+
+  "Diabetes is caused by eating too much Sugar",
+
+  "People with diabetes are more likely to get cold",
+
+  "Diabetes can often be detected by carrying out a urine test",
+
+  "Diabetes usually first appears in childhood or adolescence.",
+
+  " Frequent urination is on the Symptoms of diabetes ",
+
+  "One person can transmit diabetes to another person",
+
+  "People with diabetes should not exercise",
+
+  "Women with diabetes should not get pregnant",
+
+  "People with diabetes can't donate blood",
+
+  "Diabetes can be prevented",
+
+  "Insulin use during pregnancy will harm the baby",
+
+  ];
+
+
+  var y=["fact","fact","fact","myth","myth","fact","fact","fact","myth","myth",
+  "myth","myth" , "myth" ,"myth"
+  ];
+  var i=0;
+  var j=1;
+//If needed for loop can start here
+var para = document.createElement("p");
+para.innerHTML = x[i];
+document.getElementById('questionTextarea').appendChild(para);
+
+
+$('#mythButton').click( function() {
+  var counter = $('#ScoreValue').val();
+  if(y[i] == "myth"){
+    counter++ ;
+  }
+  $('#ScoreValue').val(counter);
+  var pretext= x[i];
+
+  if(i==13){
+    $("#questionTextarea" ).empty();
+    $('#mythButtonDiv').empty();
+    $('#factButtonDiv').empty();
+        // i=0;
+      }else
+      {
+        i++;
+        j++;
+      }
+
+      $('#questionTextarea p').each(function() {
+        var text = $(this).text();
+        $(this).text(text.replace(pretext, x[i])); 
+      });
+
+
+
+    });
+$('#factButton').click( function() {
+  var counter = $('#ScoreValue').val();
+  if(y[i]=="fact"){
+    counter++ ;
+  }
+  $('#ScoreValue').val(counter);
+  var pretext= x[i];
+
+  if(i==13){
+    $("#questionTextarea" ).empty();
+    $('#mythButtonDiv').empty();
+    $('#factButtonDiv').empty();        
+        // i=0;
+      }else
+      {
+        i++;
+      }
+      $('#questionTextarea p').each(function() {
+        var text = $(this).text();
+        $(this).text(text.replace(pretext, x[i])); 
+      });
+
+
+    });
+});
+
+</script>
+</body>
 </html>
