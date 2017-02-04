@@ -123,9 +123,16 @@ $('#mythButton').click( function() {
   var pretext= x[i];
 
   if(i==13){
-    $("#questionTextarea" ).empty();
     $('#mythButtonDiv').empty();
     $('#factButtonDiv').empty();
+
+
+      $('#questionTextarea p').each(function() {
+        var text = $(this).text();
+        $(this).text(text.replace(pretext, "Thank you for playing")); 
+      });
+
+
         // i=0;
       }else
       {
@@ -150,9 +157,13 @@ $('#factButton').click( function() {
   var pretext= x[i];
 
   if(i==13){
-    $("#questionTextarea" ).empty();
     $('#mythButtonDiv').empty();
-    $('#factButtonDiv').empty();        
+    $('#factButtonDiv').empty();  
+
+    $('#questionTextarea p').each(function() {
+        var text = $(this).text();
+        $(this).text(text.replace(pretext, "Thank you for playing")); 
+      });      
         // i=0;
       }else
       {
