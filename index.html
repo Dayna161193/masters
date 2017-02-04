@@ -127,14 +127,18 @@ $('#mythButton').click( function() {
     $('#factButtonDiv').empty();
 
 
-      $('#questionTextarea p').each(function() {
-        var text = $(this).text();
-        $(this).text(text.replace(pretext, "Thank you for playing")); 
-      });
+    $('#questionTextarea p').each(function() {
+      var text = $(this).text();
+      $(this).text(text.replace(pretext, "Thank you for playing")); 
+    });
 
 
-        // i=0;
-      }else
+ var a = document.createElement('a');
+    var linkText = document.createTextNode("Follow this");
+    a.appendChild(linkText);
+    a.title = "Follow this";
+    a.href = "https://goo.gl/forms/HV3epaCzjBV2AE592";
+    document.getElementById('questionTextarea').appendChild(a);      }else
       {
         i++;
         j++;
@@ -161,21 +165,29 @@ $('#factButton').click( function() {
     $('#factButtonDiv').empty();  
 
     $('#questionTextarea p').each(function() {
-        var text = $(this).text();
-        $(this).text(text.replace(pretext, "Thank you for playing")); 
-      });      
-        // i=0;
-      }else
-      {
-        i++;
-      }
-      $('#questionTextarea p').each(function() {
-        var text = $(this).text();
-        $(this).text(text.replace(pretext, x[i])); 
-      });
+      var text = $(this).text();
+      $(this).text(text.replace(pretext, "Thank you for playing")); 
+    });      
+
+    var a = document.createElement('a');
+    var linkText = document.createTextNode("Follow this");
+    a.appendChild(linkText);
+    a.title = "Follow this";
+    a.href = "https://goo.gl/forms/HV3epaCzjBV2AE592";
+    document.getElementById('questionTextarea').appendChild(a);
 
 
-    });
+  }else
+  {
+    i++;
+  }
+  $('#questionTextarea p').each(function() {
+    var text = $(this).text();
+    $(this).text(text.replace(pretext, x[i])); 
+  });
+
+
+});
 });
 
 </script>
